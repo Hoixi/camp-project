@@ -9,7 +9,7 @@ export default function ProductList() {
   useEffect(()=>{
     let productService = new ProductService()
     productService.getProduct().then(result=>setProducts(result.data))
-  })
+  },[])
   
   return (
     <div>
