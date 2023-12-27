@@ -8,23 +8,28 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import ProductDetail from './pages/ProductDetail';
+import CartDetail from './pages/CartDetail';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element : <App/>,
-    children:[{
-      path:"/products/:id",
-      element : <ProductDetail/>
+    element: <App />,
+    children: [{
+      path: "/products/:id",
+      element: <ProductDetail />
+    },
+    {
+      path: "cart",
+      element: <CartDetail />
     }]
   }
-  
+
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />   
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
