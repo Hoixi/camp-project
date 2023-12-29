@@ -3,34 +3,19 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import ProductDetail from './pages/ProductDetail';
-import CartDetail from './pages/CartDetail';
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from 'react-redux';
+import { configureStore } from './store/configureStore';
+import 'react-toastify/dist/ReactToastify.css';
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [{
-      path: "/products/:id",
-      element: <ProductDetail />
-    },
-    {
-      path: "cart",
-      element: <CartDetail />
-    }]
-  }
-
-]);
-
+const store = configureStore();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

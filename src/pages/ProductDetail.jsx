@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { Button, Card, Image } from 'semantic-ui-react'
+import {Card} from 'semantic-ui-react'
 import ProductService from '../services/productService'
 
 export default function ProductDetail() {
